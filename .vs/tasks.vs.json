@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-node_modules",
+      "appliesTo": "node_modules/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-",
+      "appliesTo": ".gitignore",
+      "type": "launch"
+    }
+  ]
+}
