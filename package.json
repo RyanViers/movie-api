@@ -2,10 +2,10 @@
   "name": "movie-api",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000 \u0000m\u0000o\u0000v\u0000i\u0000e\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/RyanViers/movie-api#readme",
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
   }
 }
