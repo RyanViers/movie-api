@@ -1,7 +1,7 @@
 {
   "name": "movie-api",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000 \u0000m\u0000o\u0000v\u0000i\u0000e\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
+  "description": "Movie API App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
