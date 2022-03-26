@@ -9,7 +9,7 @@ app.use(morgan('common'));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-	res.send('This Is The Default Page');
+	res.send('This Is The Default Page boy');
 });
 
 app.get('/movies', (req, res) => {
