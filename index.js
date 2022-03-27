@@ -3,13 +3,17 @@ const express = require('express'),
 
 const app = express();//Encapsulates Express's functionality to configure web server.
 
-let movies ={"Title":"DUNE"};
+let movies =[{"Title":"DUNE","Director":"Denis Villeneuve"},
+{"Title":"Nacho Libre","Director":"Jared Hess"},
+{"Title":"Dumb and Dumber","Director":"Peter Farrelly"},
+{"Title":"Spider Man: No Way Home","Director":"Jon Watts"},
+{"Title":"Walk Hard: The Dewey Cox Story","Director":"Jake Kasdan"}];
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-	res.send('This Is The Default Page boy');
+	res.send('This Is The Default Page');
 });
 
 app.get('/movies', (req, res) => {
