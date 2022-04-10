@@ -1,0 +1,29 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body{
+	background-color: black;
+}
+
+table, th, td {
+	padding: 20px;
+	border:1px solid black;
+	text-align: center;
+}
+
+th{
+	font-size:30px;
+	font-family: arial;
+	background-color: darkgrey;
+}
+
+td{
+	font-size: 15px;
+	background-color: lightgrey;
+}
+
+code{
+	white-space: pre-line;
+}
