@@ -140,7 +140,7 @@ app.get('/movies/director/:Name', (req, res) => {
 		});
 });
 
-/*UPDATE Requests*/
+/*****UPDATE Requests*****/
 
 /*UPDATE user info by username.*/
 app.put('/users/:Username', (req, res) => {
@@ -178,7 +178,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 		});
 });
 
-/*DELETE Requests*/
+/*****DELETE Requests*****/
 
 /*DELETE movie from user's favorite list.*/
 app.delete('/users/:Username/movies/:MovieID', (req, res) => {
