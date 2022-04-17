@@ -1,16 +1,17 @@
 /*****Load Express Framework*****/
 const express = require('express');
 const app = express();//Encapsulates Express's functionality to configure web server.
+const port = process.env.PORT || 8080;
 
 /*****Import Mongoose, modles.js, and the Movies and Users models.*****/
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const cors = require('cors');
 const Movies = Models.Movie;
 const Users = Models.User;
 
 /*****Express-Validator*****/
 const {check, validationResult} = require('express-validator');
-
 
 /*****Allows Mongoose to connect to remote database.*****/
 mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true });
@@ -28,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 /*****CORS*****/
-const cors = require('cors');
+
 app.use(cors());
 /*let allowedOrigins = ['/*http://localhost:8080*///', '/*http://testsite.com*///'];*/
 
@@ -270,7 +271,6 @@ app.use((err, req, res, next) => {
 });
 
 /*App Listener*/
-const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
 	console.log('Listening on Port ' + port);
 });
