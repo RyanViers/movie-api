@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 /*****CORS*****/
 const cors = require('cors');
 app.use(cors());
-/*let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];*/
+/*let allowedOrigins = ['/*http://localhost:8080*///', '/*http://testsite.com*///'];*/
 
 /*app.use(cors({
 	origin: (origin, callback) => {
