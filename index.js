@@ -11,8 +11,11 @@ const Users = Models.User;
 /*****Express-Validator*****/
 const {check, validationResult} = require('express-validator');
 
-/*Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from REST API.*/
-mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true });
+
+/*****Allows Mongoose to connect to remote database.*****/
+mongoose.connect( process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true });
+/*****Allows Mongoose to connect to local database.*****/
+//mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true });
 
 /*****Import Middleware Libraries: Morgan, Body-Parser, and UUID.*****/
 const morgan = require('morgan'),//Imports express and morgan modules locally to file.
