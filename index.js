@@ -144,19 +144,15 @@ app.get(
 );
 
 /*READ list of data about all movies.*/
-app.get(
-  "/movies",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Movies.find()
-      .then((movies) => {
-        res.status(200).json(movies);
-      })
-      .catch((err) => {
-        handleError(err, res);
-      });
-  }
-);
+app.get("/movies", (req, res) => {
+  Movies.find()
+    .then((movies) => {
+      res.status(200).json(movies);
+    })
+    .catch((err) => {
+      handleError(err, res);
+    });
+});
 
 /*READ movie data about specific movie by title.*/
 app.get(
