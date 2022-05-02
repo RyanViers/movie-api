@@ -28,9 +28,9 @@ const morgan = require("morgan"), //Imports express and morgan modules locally t
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+//app.use(cors());
 
-app.use((req, res, next) => {
+app.use(cors(req, res, next) => {
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "X-Requested_With");
