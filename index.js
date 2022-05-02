@@ -42,11 +42,6 @@ app.use(cors());
 		return callback(null, true);
 	}
 }));*/
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 /*****Authentication*****/
 let auth = require("./auth")(app);
@@ -62,6 +57,11 @@ const handleError = (error, res) => {
   res.status(500).send("Error: " + error);
 };
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 /*****CREATE Requests*****/
 
 /*CREATE a new user.*/
