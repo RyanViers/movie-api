@@ -31,9 +31,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use((req, res, next) => {
-  res.header("Cross-Origin-Resource-Policy", "cross-origin")
+  res.header("Cross-Origin-Resource-Policy", "cross-origin");
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next()
-})
+});
 
 /*****CORS to limit origins for application*****/
 /*let allowedOrigins = ['/*http://localhost:8080*/ //', '/*http://testsite.com*///'];*/
