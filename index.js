@@ -30,10 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use((req, res, next) => {
+app.use('/',(req, res, next) => {
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Accept");
+  res.header("Access-Control-Allow-Headers", "X-Requested_With");
   next()
 });
 
