@@ -28,7 +28,10 @@ const morgan = require("morgan"), //Imports express and morgan modules locally t
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: '*',
+  })
+);
 
 /*****CORS to limit origins for application*****/
 /*let allowedOrigins = ['/*http://localhost:8080*/ //', '/*http://testsite.com*///'];*/
@@ -57,11 +60,11 @@ const handleError = (error, res) => {
   res.status(500).send("Error: " + error);
 };
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://ryan-viers-movie-app.herokuapp.com/"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
+});*/
 /*****CREATE Requests*****/
 
 /*CREATE a new user.*/
