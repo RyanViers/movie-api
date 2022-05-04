@@ -6,7 +6,7 @@ const port = process.env.PORT || 8080;
 /*****Import Mongoose, modles.js, and the Movies and Users models.*****/
 const mongoose = require("mongoose");
 const Models = require("./models.js");
-//const cors = require("cors");
+const cors = require("cors");
 const Movies = Models.Movie;
 const Users = Models.User;
 
@@ -28,7 +28,10 @@ const morgan = require("morgan"), //Imports express and morgan modules locally t
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:1234",
+  }));
 
 /*****CORS to limit origins for application*****/
 /*let allowedOrigins = ['/*http://localhost:8080*/ //', '/*http://testsite.com*///'];*/
