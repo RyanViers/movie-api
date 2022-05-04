@@ -30,7 +30,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "*",
     Cross-Origin-Resource-Policy: cross-origin,
     Cross-Origin-Embedder-Policy: require-corp,
     Cross-Origin-Opener-Policy: same-origin,
