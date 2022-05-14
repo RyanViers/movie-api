@@ -28,10 +28,10 @@ const morgan = require("morgan"), //Imports express and morgan modules locally t
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(cors());
+app.use(cors());
 
 /*****CORS to limit origins for application*****/
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
+/*let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
 app.use(cors({
 	origin: (origin, callback) => {
 		if(!origin) return callback(null, true);
@@ -41,7 +41,7 @@ app.use(cors({
 		}
 		return callback(null, true);
 	}
-}));
+}));*/
 
 /*****Authentication*****/
 let auth = require("./auth")(app);
