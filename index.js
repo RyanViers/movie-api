@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 /*****CORS to limit origins for application*****/
-/*let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
+/*let allowedOrigins = ['/*http://localhost:8080*//*', '/*http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
 app.use(cors({
 	origin: (origin, callback) => {
 		if(!origin) return callback(null, true);
