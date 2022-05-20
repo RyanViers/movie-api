@@ -122,6 +122,7 @@ app.get(
       })
       .catch((err) => {
         handleError(err, res);
+        console.log('here');
       });
   }
 );
