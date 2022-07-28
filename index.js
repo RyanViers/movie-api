@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-/* Uncomment To Set CORS Policy!!! */
+// Uncomment To Set CORS Policy!!!
 
 
 /*let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
@@ -64,9 +64,7 @@ const handleError = (error, res) => {
   res.status(500).send("Error: " + error);
 };
 
-/* **** Endpoints *****
-***********************
-*/
+// Endpoints
 
 /** 
 * POST: Allow a new user to register.
