@@ -53,7 +53,7 @@ const passport = require("passport");
 require("./passport");
 
 /**
- * Serves sstatic content for the app from the 'public' directory.
+ * Serves static content for the app from the 'public' directory.
  */
 app.use(express.static("public"));
 
@@ -83,7 +83,7 @@ const handleError = (error, res) => {
 * Endpoint: /users
 * Method: POST
 * Request Body: Bearer Token, JSON with user object.
-* @returns User Object
+* @returns {object} User
 */
 app.post(
   "/users",
