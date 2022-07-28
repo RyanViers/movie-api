@@ -80,7 +80,7 @@ const handleError = (error, res) => {
 * Endpoint: /users
 * Method: POST
 * Request Body: Bearer Token, JSON with user object.
-* @returns {object} User
+* @returns User object
 */
 app.post(
   "/users",
