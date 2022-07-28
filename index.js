@@ -69,13 +69,13 @@ const handleError = (error, res) => {
 /** 
 * POST: Allow a new user to register.
 * Expected JSON Format:
-{
-  ID: Integer,
-  Username: String,
-  Password: String,
-  Email: String,
-  Birthday: Date
-}
+*{
+* ID: Integer,
+* Username: String,
+* Password: String,
+* Email: String,
+* Birthday: Date
+*}
 *
 * Endpoint: /users
 * Method: POST
