@@ -30,10 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-/* **** Uncomment To Set CORS Policy!!! *****
-********************************************
+/* Uncomment To Set CORS Policy!!! */
 
-/*let allowedOrigins = ['/*http://localhost:8080*//*', '/*http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
+
+/*let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
 app.use(cors({
 	origin: (origin, callback) => {
 		if(!origin) return callback(null, true);
@@ -45,7 +45,6 @@ app.use(cors({
 	}
 }));*/
 
-/*********************************************/
 
 // Authentication
 let auth = require("./auth")(app);
