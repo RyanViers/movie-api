@@ -124,7 +124,7 @@ app.post(
   }
 );
 
-/*****READ Requests*****/
+// READ Requests
 
 /*Default Page*/
 app.get("/", (req, res) => {
@@ -266,7 +266,7 @@ app.get(
   }
 );
 
-/*****UPDATE Requests*****/
+//UPDATE Requests
 
 /**
 * PUT: Allows user to update profile information. Use username to update profile.
@@ -342,7 +342,7 @@ app.post(
   }
 );
 
-/*****DELETE Requests*****/
+// DELETE Requests
 
 /**
  * DELETE: Allows users to remove a movie from their list of favorites
