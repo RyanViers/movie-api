@@ -32,7 +32,6 @@ app.use(cors());
 
 // Uncomment To Set CORS Policy!!!
 
-
 /*let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','https://ryan-viers-08aa31.netlify.app/'];
 app.use(cors({
 	origin: (origin, callback) => {
@@ -45,7 +44,6 @@ app.use(cors({
 	}
 }));*/
 
-
 // Authentication
 let auth = require("./auth")(app);
 const passport = require("passport");
@@ -57,8 +55,8 @@ require("./passport");
 app.use(express.static("public"));
 
 /**
-* Error Handeling for Endpoints.
-*/
+ * Error Handeling for Endpoints.
+ */
 const handleError = (error, res) => {
   console.error(error);
   res.status(500).send("Error: " + error);
@@ -66,22 +64,13 @@ const handleError = (error, res) => {
 
 // Endpoints
 
-/** 
-* POST: Allow a new user to register.
-* Expected JSON Format:
-*{
-* ID: Integer,
-* Username: String,
-* Password: String,
-* Email: String,
-* Birthday: Date
-*}
-*
-* Endpoint: /users
-* Method: POST
-* Request Body: Bearer Token, JSON with user object.
-* @returns User object
-*/
+/**
+ * POST: Allows new user to register.
+ * Password is hashed before being stored in the database.
+ * @function [path]/users/
+ * @param {Object} req.body
+ * @returns { Object } User object
+ */
 app.post(
   "/users",
   [
@@ -132,11 +121,12 @@ app.get("/", (req, res) => {
 });
 
 /**
-* GET: Returns a list of all users.
-* Request Body: Bearer Token
-* @returns Array of all user objects.
-* @requires passport
-*/
+ * GET: Returns a list of all users.
+ * Request Body: Bearer Token
+ * @function [path]/users/
+ * @returns { Array[] } Array of User objects
+ * @requires passport
+ */
 app.get(
   "/users",
   passport.authenticate("jwt", { session: false }),
@@ -149,18 +139,19 @@ app.get(
       })
       .catch((err) => {
         handleError(err, res);
-        console.log('here');
+        console.log("here");
       });
   }
 );
 
 /**
-* GET: Returns data about specific user by username.
-* Request Body: Bearer Token
-* @param Username
-* @returns User Object
-* @requires passport
-*/
+ * GET: Returns data about specific user by username.
+ * Request Body: Bearer Token
+ * @function [path]/users/:username
+ * @param {String} Username
+ * @returns { Object } User object
+ * @requires passport
+ */
 app.get(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -178,30 +169,34 @@ app.get(
 );
 
 /**
-* GET: Returns list of all movies.
-* Request Body: Bearer Token
-* @returns Array of Movie objects
-* @requires passport
-*/
-app.get("/movies",
-  passport.authenticate('jwt', { session: false}),
+ * GET: Returns list of all movies.
+ * Request Body: Bearer Token
+ * @function [path]/movies/
+ * @returns { Array[] } Array of Movie objects
+ * @requires passport
+ */
+app.get(
+  "/movies",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
-  Movies.find()
-    .then((movies) => {
-      res.status(200).json(movies);
-    })
-    .catch((err) => {
-      handleError(err, res);
-    });
-});
+    Movies.find()
+      .then((movies) => {
+        res.status(200).json(movies);
+      })
+      .catch((err) => {
+        handleError(err, res);
+      });
+  }
+);
 
 /**
-* GET: Returns movie data about specific movie by title.
-* Request Body: Bearer Token
-* @param MovieID
-* @returns Movie object
-* @requires passport
-*/
+ * GET: Returns movie data about a specific movie by title.
+ * Request Body: Bearer Token
+ * @function [path]/movies/:title
+ * @param {String} Title
+ * @returns { Object } Movie object
+ * @requires passport
+ */
 app.get(
   "/movies/:Title",
   passport.authenticate("jwt", { session: false }),
@@ -217,12 +212,13 @@ app.get(
 );
 
 /**
-* GET: Returns data about a specific specific genre by name.
-* Request Body: Bearer Token
-* @param Genre Name
-* @returns Genre object
-* @requires passport
-*/
+ * GET: Returns data about a specific genre by name.
+ * Request Body: Bearer Token
+ * @function [path]/genres/:name
+ * @param {String} Name
+ * @returns { Object } Genre object
+ * @requires passport
+ */
 app.get(
   "/movies/genre/:Name",
   passport.authenticate("jwt", { session: false }),
@@ -242,12 +238,13 @@ app.get(
 );
 
 /**
-* GET: Returns data about a specific director by name.
-* Request Body: Bearer Token
-* @param Director Name
-* @returns Director object
-* @requires passport
-*/
+ * GET: Returns data about a specific director by name.
+ * Request Body: Bearer Token
+ * @function [path]/directors/:name
+ * @param {String} Name
+ * @returns { Object } Director object
+ * @requires passport
+ */
 app.get(
   "/movies/director/:Name",
   passport.authenticate("jwt", { session: false }),
@@ -269,12 +266,14 @@ app.get(
 //UPDATE Requests
 
 /**
-* PUT: Allows user to update profile information. Use username to update profile.
-* Request Body: Bearer Token, User object
-* @param Username
-* @returns Updated User object
-* @requires passport
-*/
+ * PUT: Allows user to update profile information. Use username to update profile.
+ * Request Body: Bearer Token, User object
+ * @function [path]/users/:username
+ * @param {String} Username
+ * @param {Object} req.body
+ * @returns { Object } User object
+ * @requires passport
+ */
 app.put(
   "/users/:Username",
   [
@@ -318,9 +317,10 @@ app.put(
 /**
  * POST: Allows users to add a movie to their list of favorite movies.
  * Request body: Bearer Token
- * @param Username
- * @param movieId
- * @returns Updated User object
+ * @function [path]/users/:username/movies/:title
+ * @param {String} Username
+ * @param {String} Title
+ * @returns { Object } User object
  * @requires passport
  */
 app.post(
@@ -347,9 +347,10 @@ app.post(
 /**
  * DELETE: Allows users to remove a movie from their list of favorites
  * Request body: Bearer Token
- * @param Username
- * @param movieId
- * @returns Updated User object
+ * @function [path]/users/:username/movies/:title
+ * @param {String} Username
+ * @param {String} Title
+ * @returns { Object } User object
  * @requires passport
  */
 app.delete(
@@ -374,8 +375,9 @@ app.delete(
 /**
  * DELETE: Allows existing users to delete profiles
  * Request body: Bearer token
- * @param Username
- * @returns Confirmation of deletion message.
+ * @function [path]/users/:username
+ * @param {String} Username
+ * @returns { String } Success message
  * @requires passport
  */
 app.delete(
@@ -397,16 +399,16 @@ app.delete(
 );
 
 /**
-* Error Handeling for App.
-*/
+ * Error Handeling for App.
+ */
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
 
 /*
-* App Listener, Listening to port 8000.
-*/
+ * App Listener, Listening to port 8000.
+ */
 app.listen(port, "0.0.0.0", () => {
   console.log("Listening on Port " + port);
 });
