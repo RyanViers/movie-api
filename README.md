@@ -12,8 +12,8 @@ can also delete their profile by username.
 
     Return a list of all movies to the user
     Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user
-    Return data about a genre (description) by name/title (e.g., “Thriller”)
-    Return data about a director (bio, birthdate) by name
+    Return data about a genre (description) by name/title (e.g., “Comedy”)
+    Return data about a director (bio, birthdate, death) by name
     Allow new users to register
     Allow users to update their user info (username, password, email, date of birth)
     Allow users to add a movie to their list of favorites
@@ -29,8 +29,6 @@ can also delete their profile by username.
     The database must be built using MongoDB.
     The business logic must be modeled with Mongoose.
     The API must provide movie information in JSON format.
-    The JavaScript code must be error-free.
-    The API must be tested in Postman.
     The API must include user authentication and authorization code.
     The API must include data validation logic.
     The API must meet data security regulations.
